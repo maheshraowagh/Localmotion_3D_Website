@@ -68,12 +68,15 @@
     // Center horizontally
     const dx = (cw - dw) / 2;
 
-    // Anchor flush to the top (dy = 0) so there is NEVER any line or gap at the top edge
+    // Responsive vertical positioning:
+    // On mobile portrait (dh <= ch): center vertically.
+    // On widescreen laptops/desktops (dh > ch): anchor at (ch - dh) * 0.90
+    // so the bottom splash and rim of the can are 100% fully visible without clipping!
     let dy = 0;
-    if (dh < ch) {
+    if (dh <= ch) {
       dy = (ch - dh) / 2;
     } else {
-      dy = 0;
+      dy = (ch - dh) * 0.90;
     }
 
     ctx.drawImage(img, dx, dy, dw, dh);
