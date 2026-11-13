@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=5.0" name="viewport"/>
+  <title>LOCAL MOTION — Peach Vodka Soda</title>
+  <!-- Google Fonts: Syne, DM Sans, Plus Jakarta Sans & Playfair Display -->
+  <link href="https://fonts.googleapis.com" rel="preconnect"/>
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet"/>
+  <!-- Tailwind CSS v3 CDN with Forms and Container Queries -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <!-- Tailwind Custom Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'lm-peach': '#F5A982',
+            'lm-peach-soft': '#F8C3A7',
+            'lm-ivory': '#F7F0E5',
+            'lm-ivory-soft': '#FAF5EC',
+            'lm-navy': '#17263D',
+            'lm-coral': '#D98773',
+            'lm-botanical': '#425448',
+            'lm-white': '#FFFAF3'
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', '"DM Sans"', 'sans-serif'],
+            display: ['"Syne"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'Georgia', 'serif']
+          },
+          boxShadow: {
+            'glow-peach': '0 20px 50px -10px rgba(245, 169, 130, 0.35)',
+            'craft': '0 12px 36px -4px rgba(23, 38, 61, 0.08)'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+/* ==========================================================================
+   LOCAL MOTION - ULTRA-MODERN 3D SCROLL & STITCH INTEGRATION
+   Universal Multi-Device Responsive Design System
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: #f7cbaf;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f7cbaf;
+  color: #17263D;
+  font-family: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Offset for fixed floating navbar when jumping to sections */
+section[id] {
+  scroll-margin-top: 110px;
+}
+
+/* --------------------------------------------------------------------------
+   1. ULTRA-MODERN KINETIC HERO TYPOGRAPHY (VANISHES ON SCROLL)
+   -------------------------------------------------------------------------- */
+.hero-overlay {
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  text-align: center;
+  width: 92%;
+  max-width: 800px;
+  pointer-events: none;
+  will-change: opacity, transform, filter;
+  transition: opacity 0.1s linear, transform 0.1s linear, filter 0.1s linear;
+}
+
+.hero-overlay-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2.2rem, 5.5vw, 4.8rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.03em;
+  color: #17263D;
+  margin-bottom: 1.15rem;
+  text-shadow: 0 4px 30px rgba(255, 255, 255, 0.4);
+}
+
+.text-gradient-coral {
+  background: linear-gradient(135deg, #E65C2B 0%, #FA7640 45%, #F5A982 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(0.92rem, 1.3vw, 1.15rem);
+  font-weight: 500;
+  color: rgba(23, 38, 61, 0.85);
+  line-height: 1.55;
+  max-width: 580px;
+  margin: 0 auto 1.5rem;
+  text-shadow: 0 2px 16px rgba(255, 255, 255, 0.9);
+}
+
+.hero-chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-bottom: 1.8rem;
+}
+
+.hero-chip {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  padding: 0.38rem 0.95rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #17263D;
+  box-shadow: 0 4px 16px rgba(23, 38, 61, 0.05);
+}
+
+.hero-scroll-hint {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  color: rgba(23, 38, 61, 0.65);
+}
+
+.scroll-mouse-pill {
+  width: 18px;
+  height: 28px;
+  border: 2px solid rgba(23, 38, 61, 0.4);
+  border-radius: 999px;
+  display: flex;
+  justify-content: center;
+  padding-top: 4px;
+}
+
+.scroll-mouse-dot {
+  width: 3.5px;
+  height: 6px;
+  background-color: #FA7640;
+  border-radius: 2px;
+  animation: mouseScroll 1.6s infinite ease-in-out;
+}
+
+@keyframes mouseScroll {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(10px); opacity: 0; }
+}
+
+/* --------------------------------------------------------------------------
+   MULTI-DEVICE RESPONSIVE BREAKPOINTS
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 640px) {
+  section[id] {
+    scroll-margin-top: 85px;
+  }
+  .hero-overlay {
+    top: 54%;
+    width: 94%;
+  }
+  .hero-title {
+    font-size: clamp(1.9rem, 8.5vw, 2.8rem);
+    letter-spacing: -0.025em;
+    margin-bottom: 0.85rem;
+  }
+  .hero-subtitle {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+    padding: 0 0.5rem;
+  }
+  .hero-chips-row {
+    gap: 0.4rem;
+    margin-bottom: 1.4rem;
+  }
+  .hero-chip {
+    font-size: 0.7rem;
+    padding: 0.32rem 0.8rem;
+  }
+}
+
+@media (max-height: 750px) and (min-width: 641px) {
+  .hero-overlay {
+    top: 57%;
+  }
+  .hero-title {
+    font-size: clamp(2rem, 4.5vw, 3.8rem);
+    margin-bottom: 0.75rem;
+  }
+  .hero-subtitle {
+    margin-bottom: 1rem;
+    font-size: 0.92rem;
+  }
+  .hero-chips-row {
+    margin-bottom: 1.2rem;
+  }
+}
+
+@media (max-height: 520px) {
+  .hero-overlay {
+    top: 60%;
+  }
+  .hero-title {
+    font-size: clamp(1.6rem, 3.8vw, 2.4rem);
+    margin-bottom: 0.4rem;
+  }
+  .hero-subtitle {
+    display: none;
+  }
+  .hero-chips-row {
+    margin-bottom: 0.5rem;
+  }
+  .hero-scroll-hint {
+    display: none;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. FIXED FULL-SCREEN 3D ANIMATION CANVAS
+   -------------------------------------------------------------------------- */
+#animationCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   3. SCROLL TRACK (Drives 3D sequence scrubbing)
+   -------------------------------------------------------------------------- */
+.scroll-track {
+  width: 100%;
+  height: 240vh;
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   4. STITCH WEBSITE CONTENT (Sliding smoothly over canvas)
+   -------------------------------------------------------------------------- */
+.stitch-website-content {
+  position: relative;
+  z-index: 30;
+  background-color: #FAF5EC;
+  box-shadow: 0 -35px 70px rgba(23, 38, 61, 0.14);
+}
+
+::selection {
+  background-color: #F8C3A7;
+  color: #17263D;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.letter-spaced-wide {
+  letter-spacing: 0.22em;
+}
+
+.transition-smooth {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+  </style>
+</head>
+<body class="antialiased text-lm-navy relative bg-[#f7cbaf]">
+
+  <!-- SLIM MINIMALIST FLOATING PILL NAVBAR -->
+  <header id="siteHeader" class="fixed top-0 left-0 right-0 z-50 px-3 sm:px-6 py-2.5 transition-all duration-300">
+    <div class="max-w-3xl mx-auto flex items-center justify-between px-5 sm:px-7 py-2 sm:py-2.5 rounded-full bg-[#FAF5EC]/80 backdrop-blur-xl border border-white/70 shadow-[0_4px_20px_rgba(23,38,61,0.05)] relative">
+      <!-- Left: Single-Line Brand Logo -->
+      <a class="flex items-center cursor-pointer whitespace-nowrap group" href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">
+        <span class="text-xs sm:text-sm font-extrabold tracking-[0.22em] uppercase text-lm-navy font-display transition-colors duration-200 group-hover:text-lm-coral whitespace-nowrap">
+          LOCAL MOTION
+        </span>
+      </a>
+
+      <!-- Center / Right Links (Desktop & Tablet) -->
+      <nav aria-label="Main Navigation" class="hidden md:flex items-center space-x-6 lg:space-x-8 text-[11px] font-bold tracking-widest text-lm-navy/85 uppercase">
+        <a class="hover:text-lm-coral transition-colors duration-200 whitespace-nowrap" href="#our-story">Our Story</a>
+        <a class="hover:text-lm-coral transition-colors duration-200 whitespace-nowrap" href="#the-flavour">The Flavour</a>
+        <a class="hover:text-lm-coral transition-colors duration-200 whitespace-nowrap" href="#experience">The Experience</a>
+        <a class="hover:text-lm-coral transition-colors duration-200 whitespace-nowrap" href="#store-locator">Find Us</a>
+      </nav>
+
+      <!-- Mobile Menu Toggle Button (Mobile only) -->
+      <button id="mobileMenuBtn" class="md:hidden p-1 text-lm-navy hover:text-lm-coral focus:outline-none" aria-label="Toggle Navigation Menu">
+        <svg id="menuIcon" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <svg id="closeIcon" class="w-4 h-4 hidden" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobileMenu" class="hidden absolute top-full left-0 right-0 mt-2 p-4 rounded-2xl bg-[#FAF5EC]/95 backdrop-blur-2xl border border-white/80 shadow-xl flex flex-col space-y-2.5 text-center md:hidden transition-all duration-300 z-50">
+        <a class="mobile-nav-link text-xs font-bold tracking-widest text-lm-navy uppercase py-2 border-b border-lm-navy/10 hover:text-lm-coral" href="#our-story">Our Story</a>
+        <a class="mobile-nav-link text-xs font-bold tracking-widest text-lm-navy uppercase py-2 border-b border-lm-navy/10 hover:text-lm-coral" href="#the-flavour">The Flavour</a>
+        <a class="mobile-nav-link text-xs font-bold tracking-widest text-lm-navy uppercase py-2 border-b border-lm-navy/10 hover:text-lm-coral" href="#experience">The Experience</a>
+        <a class="mobile-nav-link text-xs font-bold tracking-widest text-lm-navy uppercase py-2 hover:text-lm-coral" href="#store-locator">Find Us</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ULTRA-MODERN KINETIC HERO TYPOGRAPHY (Vanishes cleanly on scroll) -->
+  <div id="heroOverlay" class="hero-overlay">
+    <div class="hero-overlay-content">
+      <!-- Minimalist Luxury Eyebrow Pill -->
+      <div class="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 rounded-full bg-white/85 backdrop-blur-md border border-lm-peach/40 text-lm-navy text-[10px] sm:text-[11px] font-bold tracking-[0.18em] uppercase mb-4 sm:mb-6 shadow-sm">
+        <span class="w-2 h-2 rounded-full bg-lm-coral animate-ping"></span>
+        <span class="w-1.5 h-1.5 rounded-full bg-lm-coral -ml-3"></span>
+        <span>2026 Reserve • Peach Vodka Soda</span>
+      </div>
+
+      <!-- Monumental Editorial Title -->
+      <h1 class="hero-title">
+        <span class="block">MAKE ROOM</span>
+        <span class="block text-gradient-coral italic font-serif font-normal">FOR PEACH.</span>
+      </h1>
+
+      <!-- Sophisticated Minimalist Subtitle -->
+      <p class="hero-subtitle">
+        A velvety collision of cold-pressed Georgia orchard peaches, 6x distilled craft vodka, and crisp mountain effervescence.
+      </p>
+
+      <!-- Modern Ingredient / Spec Chips -->
+      <div class="hero-chips-row">
+        <span class="hero-chip">🍑 100% Real Peach</span>
+        <span class="hero-chip">⚡ 5.0% ALC/VOL</span>
+        <span class="hero-chip">✨ 95 Calories</span>
+        <span class="hero-chip">🌿 Zero Sugar</span>
+      </div>
+
+      <!-- Sleek Animated Scroll Hint -->
+      <div class="hero-scroll-hint">
+        <div class="scroll-mouse-pill">
+          <div class="scroll-mouse-dot"></div>
+        </div>
+        <span>SCROLL TO IMMERSE</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PURE 3D SCROLL ANIMATION CANVAS -->
+  <canvas id="animationCanvas"></canvas>
+
+  <!-- SCROLL TRACK (Drives 3D sequence scrubbing) -->
+  <div id="scrollTrack" class="scroll-track"></div>
+
+  <!-- STITCH WEBSITE SECTIONS (Sliding smoothly beneath the scroll animation) -->
+  <div class="stitch-website-content">
+    <main>
+<!-- BEGIN: Section04BrandPhilosophy -->
+<section class="py-20 lg:py-28 bg-lm-ivory border-t border-b border-lm-navy/5" data-purpose="brand-philosophy" id="our-story">
+<div class="max-w-7xl mx-auto px-6 sm:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Column 1: Philosophy Intro -->
+<div class="lg:col-span-5">
+<span class="text-xs font-bold tracking-[0.22em] text-lm-botanical uppercase block mb-3">
+              The Local Motion Philosophy
+            </span>
+<h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-lm-navy font-serif leading-tight mb-6">
+              GOOD THINGS HAPPEN IN MOTION.
+            </h2>
+<div class="w-16 h-0.5 bg-lm-coral mb-6"></div>
+<p class="text-base sm:text-lg text-lm-navy/80 leading-relaxed font-light">
+              Meet a fresh perspective on vodka soda. Local Motion brings together vodka, carbonation and natural peach flavour in a refreshing expression made for life's lighter moments.
+            </p>
+</div>
+<!-- Column 2: Botanical & Craft Values Grid -->
+<div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-8">
+<div class="p-8 rounded-2xl bg-lm-white border border-lm-peach/30 shadow-craft">
+<div class="w-10 h-10 rounded-full bg-lm-peach/30 text-lm-botanical flex items-center justify-center font-bold text-sm mb-4">
+                01
+              </div>
+<h3 class="text-lg font-bold text-lm-navy mb-2 font-serif">Simplicity by Nature</h3>
+<p class="text-sm text-lm-navy/70 leading-relaxed">
+                We believe true craftsmanship speaks softly. Crafted with clean vodka, pure effervescent water, and vibrant natural peach tones.
+              </p>
+</div>
+<div class="p-8 rounded-2xl bg-lm-white border border-lm-peach/30 shadow-craft">
+<div class="w-10 h-10 rounded-full bg-lm-peach/30 text-lm-botanical flex items-center justify-center font-bold text-sm mb-4">
+                02
+              </div>
+<h3 class="text-lg font-bold text-lm-navy mb-2 font-serif">Everyday Unwinding</h3>
+<p class="text-sm text-lm-navy/70 leading-relaxed">
+                Whether shared under late-afternoon skies or enjoyed after hours, Local Motion provides a gentle pause to savor the present.
+              </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Section04BrandPhilosophy -->
+<!-- BEGIN: Section05TheFlavour -->
+<section class="py-20 lg:py-28 bg-lm-peach-soft/20" data-purpose="flavour-profile" id="the-flavour">
+<div class="max-w-7xl mx-auto px-6 sm:px-8">
+<!-- Header -->
+<div class="text-center max-w-2xl mx-auto mb-16">
+<span class="text-xs font-bold tracking-[0.22em] text-lm-botanical uppercase block mb-3">Tasting Notes</span>
+<h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-lm-navy font-serif mb-4">
+            PEACH, IN ITS ELEMENT.
+          </h2>
+<p class="text-sm sm:text-base text-lm-navy/75 leading-relaxed">
+            A vibrant peach-inspired expression, paired with vodka and sparkling refreshment.
+          </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+<!-- Flavour Pillars -->
+<div class="lg:col-span-6 space-y-6">
+<!-- 01 PEACH -->
+<div class="p-6 sm:p-8 bg-lm-white rounded-2xl border border-lm-peach/40 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-start gap-4">
+<span class="text-xs font-bold tracking-widest text-lm-coral uppercase pt-1">01</span>
+<div>
+<h3 class="text-lg font-bold text-lm-navy tracking-wide uppercase mb-1">Peach</h3>
+<p class="text-sm text-lm-navy/75 leading-relaxed">
+                    Natural peach flavour with juicy notes. Sun-ripened sweetness balanced with natural fruit acidity.
+                  </p>
+</div>
+</div>
+</div>
+<!-- 02 VODKA -->
+<div class="p-6 sm:p-8 bg-lm-white rounded-2xl border border-lm-peach/40 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-start gap-4">
+<span class="text-xs font-bold tracking-widest text-lm-coral uppercase pt-1">02</span>
+<div>
+<h3 class="text-lg font-bold text-lm-navy tracking-wide uppercase mb-1">Vodka</h3>
+<p class="text-sm text-lm-navy/75 leading-relaxed">
+                    Crisp, ultra-clean vodka-based refreshment. Distilled for pure lightness with no heavy aftertaste.
+                  </p>
+</div>
+</div>
+</div>
+<!-- 03 SPARKLE -->
+<div class="p-6 sm:p-8 bg-lm-white rounded-2xl border border-lm-peach/40 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-start gap-4">
+<span class="text-xs font-bold tracking-widest text-lm-coral uppercase pt-1">03</span>
+<div>
+<h3 class="text-lg font-bold text-lm-navy tracking-wide uppercase mb-1">Sparkle</h3>
+<p class="text-sm text-lm-navy/75 leading-relaxed">
+                    Balanced, effervescent carbonation. Fine micro-bubbles create a silky, crisp mouthfeel on every sip.
+                  </p>
+</div>
+</div>
+</div>
+</div>
+<!-- Macro Ingredient Visual -->
+<div class="lg:col-span-6 relative">
+<div class="overflow-hidden rounded-3xl shadow-xl border border-lm-peach/40">
+<img alt="Artistic macro close-up of ripe juicy sliced peaches with natural velvet skin texture and dew droplets" class="w-full h-[460px] object-cover transition-transform duration-700 hover:scale-105" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIKF31zhU9xuovIxNUQlGeiyi92DeIuTeDhiso9r8LmpWW3wX2jv6OLGhqyTuJuIfL4jOSImJgSY5Aq8aLumrp6tLoZB13WFr4wfCg-FjGGVVUH63wx-7glZM3jfpXEiiUEz37zRLWzwiQlyoWubHIkQ052iCnF0KoD5pYA1qcrpUSj3k-jANmRqWgshgs9g2o3lpy6tU3OiK8OjfW3sBkZJu31Ll4x-1IXFRfU2_2"/>
+</div>
+<!-- Caption badge -->
+<div class="absolute bottom-6 left-6 bg-lm-white/90 backdrop-blur-md px-5 py-3 rounded-xl border border-lm-peach/30 text-xs text-lm-navy font-medium shadow-sm">
+              Artisan Batch Selection • Real Peach Essence
+            </div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Section05TheFlavour -->
+<!-- BEGIN: Section06ProductShowcase -->
+<section class="py-20 lg:py-28 bg-lm-ivory-soft" data-purpose="product-specifications">
+<div class="max-w-7xl mx-auto px-6 sm:px-8">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<!-- Image Feature -->
+<div class="lg:col-span-6 flex justify-center order-2 lg:order-1">
+<div class="relative w-full max-w-md bg-gradient-to-b from-lm-peach/20 to-transparent p-6 rounded-3xl">
+<img alt="Local Motion Peach Vodka Soda can packaging showcase" class="w-full object-contain rounded-2xl drop-shadow-2xl" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFzNeD78J-lmIYhOxi6BVyKlHWQOie9wu1_fjmHL94ewHZx4H9EY60FJiG3FkNV4MzC7R6_MVhLkdpTRhaEoYA3ct_Mql42_5akhXYlohzEr-5xq5Nm6u9odNrWCa2LqJuWK0IXz7YwXQf6Etev67Itl0ufCTKY3hooP6zH9RiPCDnGTbSa8WUI640QYNCvUKkLP6jL6HdVMY1mZRLUd7pAJsMKnvIRj0AmB61B0uB"/>
+</div>
+</div>
+<!-- Product Details -->
+<div class="lg:col-span-6 order-1 lg:order-2">
+<span class="text-xs font-bold tracking-[0.22em] text-lm-coral uppercase block mb-3">
+              Craft Packaging &amp; Formula
+            </span>
+<h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-lm-navy font-serif mb-6">
+              THE ONE THAT STANDS OUT.
+            </h2>
+<p class="text-base text-lm-navy/80 mb-8 leading-relaxed">
+              Every can of Local Motion Peach Vodka Soda is formulated with meticulous restraint. No artificial heaviness—just crisp craft vodka, gentle bubbles, and orchard-fresh peach.
+            </p>
+<!-- Specification Cards -->
+<div class="grid grid-cols-2 gap-4 mb-8">
+<div class="p-4 rounded-xl bg-lm-white border border-lm-navy/10">
+<div class="text-xs text-lm-navy/60 font-semibold tracking-wider uppercase mb-1">Alcohol Content</div>
+<div class="text-lg font-bold text-lm-navy">5.0% ALC / VOL</div>
+</div>
+<div class="p-4 rounded-xl bg-lm-white border border-lm-navy/10">
+<div class="text-xs text-lm-navy/60 font-semibold tracking-wider uppercase mb-1">Format Size</div>
+<div class="text-lg font-bold text-lm-navy">12 FL OZ (355 ML)</div>
+</div>
+<div class="p-4 rounded-xl bg-lm-white border border-lm-navy/10 col-span-2">
+<div class="text-xs text-lm-navy/60 font-semibold tracking-wider uppercase mb-1">Simple Ingredients</div>
+<div class="text-sm font-semibold text-lm-navy">Vodka, Carbonated Water + Natural Peach Flavour</div>
+</div>
+</div>
+<!-- CTA -->
+<a class="inline-flex items-center px-8 py-3.5 bg-lm-navy hover:bg-lm-navy/90 text-lm-white font-medium text-xs tracking-widest uppercase rounded-full shadow-md hover:shadow-lg transition-all" href="#store-locator">
+              Find A Store
+            </a>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Section06ProductShowcase -->
+<!-- BEGIN: Section07TheExperience -->
+<section class="relative py-24 lg:py-32 bg-lm-navy text-lm-white overflow-hidden" data-purpose="lifestyle-experience" id="experience">
+<div class="max-w-7xl mx-auto px-6 sm:px-8">
+<!-- Header -->
+<div class="max-w-3xl mb-12">
+<span class="text-xs font-bold tracking-[0.25em] text-lm-peach uppercase block mb-3">
+            The Local Motion Experience
+          </span>
+<h2 class="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight font-serif leading-tight mb-4">
+            LESS ORDINARY. <br/>MORE LOCAL MOTION.
+          </h2>
+<p class="text-base sm:text-lg text-lm-ivory/80 font-light leading-relaxed">
+            Made for the moments worth slowing down for, and the ones worth moving into.
+          </p>
+</div>
+<!-- Full-width Editorial Lifestyle Image Showcase -->
+<div class="relative overflow-hidden rounded-3xl shadow-2xl border border-lm-white/10 group">
+<img alt="Editorial lifestyle beverage photography: elegant glassware with ice, sparkling soda, and fresh ripe peach slices on a warm sunlit stone table outdoors at golden hour" class="w-full h-[450px] sm:h-[580px] object-cover transition-transform duration-1000 group-hover:scale-105" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZYnCZ8PEW7vzN1SB0UqR3LCiGnxpuyiTrw1OkYEE7z5VnLw2mVIlnSzN-SaYzrSHhV6Bv_RV2HfGMqAhTYBLsdWeaKPxl_Azwm-wCTnk6Sr500HWr50DdfP3obwZIosG8Axbr0y3HjXm8r1V2OvgWX5F6TxXCL7jVvs52O1huPDgC7_3-mQhkrucIHbeFSwVD0fU73Cat5c8dx4EWzfdSM80XxwZ3Km3ZEe17I30g"/>
+<div class="absolute inset-0 bg-gradient-to-t from-lm-navy/70 via-transparent to-transparent"></div>
+<div class="absolute bottom-8 left-8 right-8 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
+<div class="max-w-md">
+<span class="text-xs tracking-widest text-lm-peach uppercase block mb-1">Golden Hour Ritual</span>
+<p class="text-sm text-lm-ivory font-light">Serve chilled over ice in fine cut glassware, garnished with a ripe peach wedge.</p>
+</div>
+<div class="text-xs tracking-widest uppercase text-lm-ivory/60 border border-lm-white/20 px-4 py-2 rounded-full backdrop-blur-sm">
+              Crafted For Leisure
+            </div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Section07TheExperience -->
+<!-- BEGIN: Section08VisualStorytelling -->
+<section class="py-20 lg:py-28 bg-lm-ivory" data-purpose="editorial-collage">
+<div class="max-w-7xl mx-auto px-6 sm:px-8">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<span class="text-xs font-bold tracking-[0.22em] text-lm-botanical uppercase block mb-3">Visual Storytelling</span>
+<h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-lm-navy font-serif">
+            A LITTLE MORE PEACH IN YOUR WORLD.
+          </h2>
+</div>
+<!-- 3-Panel Editorial Collage -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Panel 1: Peach Details -->
+<div class="flex flex-col">
+<div class="overflow-hidden rounded-2xl border border-lm-navy/10 bg-lm-white shadow-sm mb-4">
+<img alt="Artistic macro close-up of ripe juicy sliced peaches with natural velvet skin texture" class="w-full h-80 object-cover hover:scale-105 transition-transform duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv3jdOBjKU9zfhN2EsPVbdNdme1_nj12wJXo7_oGE5apM_U8DSN8RdwoiSHn-Qe3zNf1BqgjA3OYzv4ayhzVjTHnW2BUej5HvEOYuDjm-NpNGrjgceaFxFOlfroFOO87clrOYtZxGKsr_UCW19eB2f7Am3FgberSoFxqq3FjMhHEDfXQHiqZ1Xr6dQ8Y4r89oAVhc_THbTh-zQR3P9HawN69EMTSW2okSo3XiSCQiK"/>
+</div>
+<span class="text-xs font-bold tracking-widest uppercase text-lm-coral mb-1">Peach Details</span>
+<p class="text-sm text-lm-navy/70">Orchard-ripe fruit selection offering authentic aromatic softness.</p>
+</div>
+<!-- Panel 2: The Sparkle -->
+<div class="flex flex-col">
+<div class="overflow-hidden rounded-2xl border border-lm-navy/10 bg-lm-white shadow-sm mb-4">
+<img alt="Macro extreme close-up of sparkling effervescent bubbles rising in sparkling soda with condensation beads" class="w-full h-80 object-cover hover:scale-105 transition-transform duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3zSD6w4Bhab6n5wyMxlbBlxnZ6CguIhKAO8GP-vVi9MEpAUDyaiw4MTIYl2ONv8LxWwx3JuZCDFtcXWeMFyvyxe5dTb_kt8tWykSLusMsWF8veQ7kNzQ1eruvMoIXF64K-xJHgvJFC810IvR-VCbyEm_jpvYM7INDpxwlwjKyIBZefhEiWwyVgvvJ-ZzeXAc0x4zsOVrOZT1BuZ0tuveRqrsgnXTRe5_gc8FtAAb6"/>
+</div>
+<span class="text-xs font-bold tracking-widest uppercase text-lm-coral mb-1">The Sparkle</span>
+<p class="text-sm text-lm-navy/70">Micro-bubbles that awaken the palate with crisp and energetic carbonation.</p>
+</div>
+<!-- Panel 3: The Motion -->
+<div class="flex flex-col">
+<div class="overflow-hidden rounded-2xl border border-lm-navy/10 bg-lm-white shadow-sm mb-4">
+<img alt="Local Motion dynamic liquid splash and can crop" class="w-full h-80 object-cover hover:scale-105 transition-transform duration-500" loading="lazy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0znTpUT__69Yj62FFi6_mKxD-3gnKdN-gdXqaD4As3oAJYkfdAZMIeWu2KqgTHDRWiqGOXho7xOcFgWNbAgTL181I9sVLGjp3TK2yBrhF5I1v3TFHl3kxHd9tnXY0JOOzfxxCToEruBUvXeVxEz9_P3USPslefBy1-u382UdxECYBhvpVuZREJBxe1jORK_LJXcoNCPn6StbNLWGJvPDt39E1CUKk9htIVpKOZBZS"/>
+</div>
+<span class="text-xs font-bold tracking-widest uppercase text-lm-coral mb-1">The Motion</span>
+<p class="text-sm text-lm-navy/70">A vibrant celebration of liquid energy and refined craft expression.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Section08VisualStorytelling -->
+<!-- BEGIN: Section09FindLocalMotion -->
+<section class="py-20 lg:py-28 bg-lm-navy text-lm-white" data-purpose="store-locator" id="store-locator">
+<div class="max-w-7xl mx-auto px-6 sm:px-8">
+<div class="max-w-2xl mb-12">
+<span class="text-xs font-bold tracking-[0.25em] text-lm-peach uppercase block mb-3">Store Locator</span>
+<h2 class="text-3xl sm:text-5xl font-bold tracking-tight font-serif mb-4">
+            FIND YOUR LOCAL MOTION.
+          </h2>
+<p class="text-base text-lm-ivory/80 font-light">
+            Discover where Local Motion is available near you across select retailers, craft bottle shops, and licensed venues.
+          </p>
+</div>
+<!-- Interactive Search Bar -->
+<div class="mb-12">
+<form class="flex flex-col sm:flex-row gap-3 max-w-xl" id="store-search-form">
+<div class="relative flex-grow">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-lm-navy/60">
+<svg class="w-5 h-5 text-lm-navy" fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24">
+<path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+<path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+</div>
+<input class="w-full pl-12 pr-4 py-3.5 bg-lm-white text-lm-navy placeholder-lm-navy/50 rounded-full text-sm font-medium border-0 focus:ring-2 focus:ring-lm-peach" id="search-input" placeholder="Enter city, state, or ZIP code" type="text"/>
+</div>
+<button class="px-8 py-3.5 bg-lm-peach hover:bg-lm-peach-soft text-lm-navy font-bold text-xs tracking-widest uppercase rounded-full shadow-md transition-colors" type="submit">
+              Find Near You
+            </button>
+</form>
+</div>
+<!-- Grid of Sample Stockists and Map Card -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Stockist List Column -->
+<div class="lg:col-span-6 space-y-4" id="stockists-list">
+<!-- Stockist Item 1 -->
+<div class="p-6 rounded-2xl bg-lm-white/5 border border-lm-white/10 hover:border-lm-peach/50 transition-colors">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-base font-bold text-lm-white font-serif">The Peach Grove Spirits</h3>
+<span class="text-xs bg-lm-peach/20 text-lm-peach px-2.5 py-1 rounded-full font-semibold">0.8 mi</span>
+</div>
+<p class="text-xs text-lm-ivory/70 mb-3">742 Evergreen Terrace, Downtown District</p>
+<div class="flex items-center gap-4 text-xs font-semibold text-lm-peach">
+<span class="inline-flex items-center gap-1">✓ In Stock</span>
+<span>• 4-Packs Available</span>
+</div>
+</div>
+<!-- Stockist Item 2 -->
+<div class="p-6 rounded-2xl bg-lm-white/5 border border-lm-white/10 hover:border-lm-peach/50 transition-colors">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-base font-bold text-lm-white font-serif">Metropolitan Fine Beverages</h3>
+<span class="text-xs bg-lm-peach/20 text-lm-peach px-2.5 py-1 rounded-full font-semibold">1.9 mi</span>
+</div>
+<p class="text-xs text-lm-ivory/70 mb-3">1088 Artisan Way, North Quarter</p>
+<div class="flex items-center gap-4 text-xs font-semibold text-lm-peach">
+<span class="inline-flex items-center gap-1">✓ In Stock</span>
+<span>• Singles &amp; 4-Packs</span>
+</div>
+</div>
+<!-- Stockist Item 3 -->
+<div class="p-6 rounded-2xl bg-lm-white/5 border border-lm-white/10 hover:border-lm-peach/50 transition-colors">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-base font-bold text-lm-white font-serif">Coastal Craft Cellars</h3>
+<span class="text-xs bg-lm-peach/20 text-lm-peach px-2.5 py-1 rounded-full font-semibold">3.4 mi</span>
+</div>
+<p class="text-xs text-lm-ivory/70 mb-3">224 Marina Boulevard, Bayfront</p>
+<div class="flex items-center gap-4 text-xs font-semibold text-lm-peach">
+<span class="inline-flex items-center gap-1">✓ In Stock</span>
+<span>• Chilled Cases Available</span>
+</div>
+</div>
+</div>
+<!-- Stylized Map Preview Card -->
+<div class="lg:col-span-6 p-8 rounded-3xl bg-lm-white/5 border border-lm-white/10 relative overflow-hidden min-h-[360px] flex flex-col justify-between">
+<!-- Stylized grid pattern representing map -->
+<div class="absolute inset-0 opacity-15 pointer-events-none" style="background-image: radial-gradient(#F5A982 1px, transparent 1px); background-size: 24px 24px;"></div>
+<div class="relative z-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-lm-peach/20 text-lm-peach text-xs uppercase tracking-wider font-semibold mb-3">
+                Live Distribution Network
+              </div>
+<h3 class="text-xl font-bold font-serif">Nationwide Shipping &amp; Local Pickup</h3>
+<p class="text-xs text-lm-ivory/70 max-w-sm mt-1">Select regions also offer door-to-door delivery through licensed partner couriers.</p>
+</div>
+<!-- Stylized Map graphic pin markers -->
+<div class="relative z-10 py-8 flex justify-around items-center">
+<div class="flex flex-col items-center animate-bounce">
+<div class="w-8 h-8 rounded-full bg-lm-peach text-lm-navy flex items-center justify-center font-bold text-xs shadow-lg">📍</div>
+<span class="text-[10px] text-lm-peach mt-1 tracking-wider">Downtown</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-lm-peach/70 text-lm-navy flex items-center justify-center font-bold text-xs shadow-lg">📍</div>
+<span class="text-[10px] text-lm-peach/70 mt-1 tracking-wider">Bayfront</span>
+</div>
+<div class="flex flex-col items-center">
+<div class="w-8 h-8 rounded-full bg-lm-peach/90 text-lm-navy flex items-center justify-center font-bold text-xs shadow-lg">📍</div>
+<span class="text-[10px] text-lm-peach/90 mt-1 tracking-wider">North Quarter</span>
+</div>
+</div>
+<div class="relative z-10 pt-4 border-t border-lm-white/10 flex justify-between items-center text-xs text-lm-ivory/60">
+<span>Showing 3 verified retail partners nearby</span>
+<a class="text-lm-peach hover:underline font-semibold" href="#store-locator">View Full Directory →</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Section09FindLocalMotion -->
+<!-- BEGIN: Section10FAQAccordion -->
+<section class="py-20 lg:py-28 bg-lm-ivory" data-purpose="faq-accordion">
+<div class="max-w-4xl mx-auto px-6 sm:px-8">
+<div class="text-center mb-16">
+<span class="text-xs font-bold tracking-[0.22em] text-lm-botanical uppercase block mb-3">Frequently Asked Questions</span>
+<h2 class="text-3xl sm:text-5xl font-bold tracking-tight text-lm-navy font-serif">
+            GOOD TO KNOW.
+          </h2>
+</div>
+<!-- Accordion Container -->
+<div class="space-y-4" id="faq-accordion-group">
+<!-- FAQ Item 1 -->
+<div class="border border-lm-navy/15 rounded-2xl bg-lm-white overflow-hidden transition-all duration-200">
+<button aria-expanded="false" class="faq-toggle w-full p-6 text-left flex justify-between items-center focus:outline-none">
+<span class="text-base sm:text-lg font-bold text-lm-navy font-serif">What is Local Motion?</span>
+<span class="faq-icon text-xl text-lm-coral transition-transform duration-300 font-light">+</span>
+</button>
+<div class="faq-content hidden px-6 pb-6 text-sm text-lm-navy/80 leading-relaxed">
+              Local Motion is a modern, premium ready-to-drink beverage company dedicated to crafting clean, authentic vodka sodas made with pure ingredients, fine carbonation, and vibrant fruit character.
+            </div>
+</div>
+<!-- FAQ Item 2 -->
+<div class="border border-lm-navy/15 rounded-2xl bg-lm-white overflow-hidden transition-all duration-200">
+<button aria-expanded="false" class="faq-toggle w-full p-6 text-left flex justify-between items-center focus:outline-none">
+<span class="text-base sm:text-lg font-bold text-lm-navy font-serif">What flavour is currently available?</span>
+<span class="faq-icon text-xl text-lm-coral transition-transform duration-300 font-light">+</span>
+</button>
+<div class="faq-content hidden px-6 pb-6 text-sm text-lm-navy/80 leading-relaxed">
+              Our signature inaugural expression is Peach Vodka Soda—a balanced union of natural ripe peach profile, smooth craft vodka, and sparkling water. Additional seasonal flavours are currently in small-batch development.
+            </div>
+</div>
+<!-- FAQ Item 3 -->
+<div class="border border-lm-navy/15 rounded-2xl bg-lm-white overflow-hidden transition-all duration-200">
+<button aria-expanded="false" class="faq-toggle w-full p-6 text-left flex justify-between items-center focus:outline-none">
+<span class="text-base sm:text-lg font-bold text-lm-navy font-serif">What is Vodka Soda?</span>
+<span class="faq-icon text-xl text-lm-coral transition-transform duration-300 font-light">+</span>
+</button>
+<div class="faq-content hidden px-6 pb-6 text-sm text-lm-navy/80 leading-relaxed">
+              Vodka soda is a classic highball cocktail pairing premium neutral grain spirit with crisp carbonated water. Local Motion elevates this timeless combination with real fruit notes and fine effervescence in a convenient canned format.
+            </div>
+</div>
+<!-- FAQ Item 4 -->
+<div class="border border-lm-navy/15 rounded-2xl bg-lm-white overflow-hidden transition-all duration-200">
+<button aria-expanded="false" class="faq-toggle w-full p-6 text-left flex justify-between items-center focus:outline-none">
+<span class="text-base sm:text-lg font-bold text-lm-navy font-serif">Where can I find Local Motion?</span>
+<span class="faq-icon text-xl text-lm-coral transition-transform duration-300 font-light">+</span>
+</button>
+<div class="faq-content hidden px-6 pb-6 text-sm text-lm-navy/80 leading-relaxed">
+              Local Motion is distributed at independent fine liquor retailers, select grocers, and premier hospitality venues. Use our interactive Store Locator above to find the nearest stocking location.
+            </div>
+</div>
+<!-- FAQ Item 5 -->
+<div class="border border-lm-navy/15 rounded-2xl bg-lm-white overflow-hidden transition-all duration-200">
+<button aria-expanded="false" class="faq-toggle w-full p-6 text-left flex justify-between items-center focus:outline-none">
+<span class="text-base sm:text-lg font-bold text-lm-navy font-serif">What are the product ingredients?</span>
+<span class="faq-icon text-xl text-lm-coral transition-transform duration-300 font-light">+</span>
+</button>
+<div class="faq-content hidden px-6 pb-6 text-sm text-lm-navy/80 leading-relaxed">
+              Our formula is simple and transparent: Ultra-pure Distilled Vodka, Carbonated Water, and Natural Peach Flavour. It contains 5% ALC/VOL and is naturally gluten-free.
+            </div>
+</div>
+<!-- FAQ Item 6 -->
+<div class="border border-lm-navy/15 rounded-2xl bg-lm-white overflow-hidden transition-all duration-200">
+<button aria-expanded="false" class="faq-toggle w-full p-6 text-left flex justify-between items-center focus:outline-none">
+<span class="text-base sm:text-lg font-bold text-lm-navy font-serif">Where can I learn more about responsible drinking?</span>
+<span class="faq-icon text-xl text-lm-coral transition-transform duration-300 font-light">+</span>
+</button>
+<div class="faq-content hidden px-6 pb-6 text-sm text-lm-navy/80 leading-relaxed">
+              We champion mindful enjoyment. You can review our responsible drinking guidelines below or visit national resources such as Responsibility.org for guidance on safe and moderate alcohol consumption.
+            </div>
+</div>
+</div>
+</div>
+</section>
+<!-- END: Section10FAQAccordion -->
+<!-- BEGIN: Section11ResponsibleDrinking -->
+<section class="py-16 bg-lm-white border-t border-b border-lm-navy/10" data-purpose="responsible-consumption">
+<div class="max-w-5xl mx-auto px-6 sm:px-8 text-center">
+<div class="inline-flex items-center justify-center w-14 h-14 rounded-full border-2 border-lm-navy/20 mb-6 text-lm-navy font-serif font-bold text-sm tracking-wider">
+          21+
+        </div>
+<h2 class="text-2xl sm:text-3xl font-bold text-lm-navy font-serif tracking-tight mb-3">
+          ENJOY THE MOMENT. KNOW YOUR LIMITS.
+        </h2>
+<p class="text-sm sm:text-base text-lm-navy/75 max-w-2xl mx-auto leading-relaxed mb-6 font-light">
+          Enjoy responsibly. Only for adults of legal drinking age. Never drink and drive. Local Motion supports mindful and moderate enjoyment for all life’s moments.
+        </p>
+<div class="inline-flex items-center gap-6 text-xs text-lm-navy/60 font-semibold tracking-wider uppercase">
+<span>Please Drink Responsibly</span>
+<span class="w-1.5 h-1.5 rounded-full bg-lm-coral"></span>
+<span>Legal Age Required</span>
+<span class="w-1.5 h-1.5 rounded-full bg-lm-coral"></span>
+<span>Recycle Aluminum</span>
+</div>
+</div>
+</section>
+<!-- END: Section11ResponsibleDrinking -->
+</main>
+<!-- BEGIN: Section12Footer -->
+<footer class="bg-lm-navy text-lm-white pt-20 pb-12 border-t border-lm-white/10" data-purpose="main-footer">
+<div class="max-w-7xl mx-auto px-6 sm:px-8">
+<!-- Top Grid -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-lm-white/10">
+<!-- Brand Wordmark & Mantra -->
+<div class="md:col-span-5">
+<a class="inline-block text-2xl sm:text-3xl font-bold tracking-[0.18em] uppercase font-serif text-lm-white mb-3 hover:text-lm-peach transition-colors" href="#">
+            LOCAL MOTION
+          </a>
+<p class="text-xs tracking-[0.25em] text-lm-peach uppercase font-semibold mb-4">
+            Keep Things Moving.
+          </p>
+<p class="text-sm text-lm-ivory/70 max-w-sm leading-relaxed font-light">
+            Craft peach vodka soda with real flavour notes and vibrant effervescence. Engineered for balanced taste and relaxed gatherings.
+          </p>
+</div>
+<!-- Navigation Columns -->
+<div class="md:col-span-2">
+<h4 class="text-xs font-bold tracking-widest text-lm-peach uppercase mb-4">Explore</h4>
+<ul class="space-y-2.5 text-xs text-lm-ivory/80 font-medium">
+<li><a class="hover:text-lm-peach transition-colors" href="#our-story">Our Story</a></li>
+<li><a class="hover:text-lm-peach transition-colors" href="#the-flavour">The Flavour</a></li>
+<li><a class="hover:text-lm-peach transition-colors" href="#experience">The Experience</a></li>
+<li><a class="hover:text-lm-peach transition-colors" href="#store-locator">Find Us</a></li>
+<li><a class="hover:text-lm-peach transition-colors" href="#faq-accordion-group">FAQs</a></li>
+</ul>
+</div>
+<div class="md:col-span-2">
+<h4 class="text-xs font-bold tracking-widest text-lm-peach uppercase mb-4">Community</h4>
+<ul class="space-y-2.5 text-xs text-lm-ivory/80 font-medium">
+<li><a class="hover:text-lm-peach transition-colors" href="#">Instagram</a></li>
+<li><a class="hover:text-lm-peach transition-colors" href="#">Facebook</a></li>
+<li><a class="hover:text-lm-peach transition-colors" href="#">Press &amp; Media</a></li>
+<li><a class="hover:text-lm-peach transition-colors" href="#">Trade Inquiries</a></li>
+</ul>
+</div>
+<div class="md:col-span-3">
+<h4 class="text-xs font-bold tracking-widest text-lm-peach uppercase mb-4">Stay Connected</h4>
+<p class="text-xs text-lm-ivory/70 mb-3">Be first to receive tasting room updates and regional launch drops.</p>
+<form class="flex items-center" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Local Motion updates.');">
+<input class="w-full px-4 py-2.5 bg-lm-white/10 text-xs text-lm-white placeholder-lm-ivory/40 rounded-l-full border-0 focus:ring-1 focus:ring-lm-peach" placeholder="Your email address" required="" type="email"/>
+<button class="px-5 py-2.5 bg-lm-peach text-lm-navy hover:bg-lm-peach-soft text-xs font-bold uppercase rounded-r-full tracking-wider transition-colors" type="submit">
+              Join
+            </button>
+</form>
+</div>
+</div>
+<!-- Bottom Legal Notice -->
+<div class="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-lm-ivory/50 gap-4">
+<div>
+          © 2026 LOCAL MOTION BEVERAGE CO. ALL RIGHTS RESERVED.
+        </div>
+<div class="flex items-center space-x-6">
+<a class="hover:text-lm-peach transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-lm-peach transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-lm-peach transition-colors" href="#">Responsible Drinking</a>
+</div>
+<div class="text-[11px] text-lm-ivory/40 text-center md:text-right">
+          Contains 5% Alcohol by Volume. Please enjoy responsibly.
+        </div>
+</div>
+</div>
+</footer>
+<!-- END: Section12Footer -->
+    </main>
+  </div>
+
+  <!-- Interactive Scripts from Stitch -->
+<!-- BEGIN: InteractiveScripts -->
+<!-- Script for Age Verification Overlay Interaction -->
+<script data-purpose="age-gate-logic">
+    document.addEventListener('DOMContentLoaded', () => {
+      const ageModal = document.getElementById('age-gate-modal');
+      const btnYes = document.getElementById('btn-age-yes');
+      const btnNo = document.getElementById('btn-age-no');
+      const exitMsg = document.getElementById('exit-message');
+
+      function dismissAgeGate() {
+        if (!ageModal) return;
+        sessionStorage.setItem('lm_age_verified', 'true');
+        ageModal.classList.add('opacity-0');
+        document.body.classList.remove('overflow-hidden');
+        setTimeout(() => {
+          ageModal.classList.add('hidden');
+          ageModal.style.display = 'none';
+        }, 500);
+      }
+
+      // Check if user previously verified age during this session
+      const isVerified = sessionStorage.getItem('lm_age_verified');
+      if (isVerified === 'true' && ageModal) {
+        ageModal.classList.add('hidden');
+        ageModal.style.display = 'none';
+        document.body.classList.remove('overflow-hidden');
+      }
+
+      // Enter Site
+      if (btnYes) {
+        btnYes.addEventListener('click', (e) => {
+          e.preventDefault();
+          dismissAgeGate();
+        });
+      }
+
+      // Exit or Decline
+      if (btnNo) {
+        btnNo.addEventListener('click', (e) => {
+          e.preventDefault();
+          if (exitMsg) {
+            exitMsg.classList.remove('hidden');
+          }
+          btnNo.classList.add('opacity-50', 'cursor-not-allowed');
+          btnNo.setAttribute('disabled', 'true');
+        });
+      }
+    });
+  </script>
+<!-- Script for FAQ Accordions -->
+<script data-purpose="faq-accordion-logic">
+    document.addEventListener('DOMContentLoaded', () => {
+      const faqToggles = document.querySelectorAll('.faq-toggle');
+
+      faqToggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+          const content = toggle.nextElementSibling;
+          const icon = toggle.querySelector('.faq-icon');
+          const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
+
+          // Close all others for refined luxury feel
+          faqToggles.forEach(otherToggle => {
+            if (otherToggle !== toggle) {
+              otherToggle.setAttribute('aria-expanded', 'false');
+              otherToggle.nextElementSibling.classList.add('hidden');
+              otherToggle.querySelector('.faq-icon').textContent = '+';
+              otherToggle.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
+            }
+          });
+
+          // Toggle current
+          if (isExpanded) {
+            toggle.setAttribute('aria-expanded', 'false');
+            content.classList.add('hidden');
+            icon.textContent = '+';
+            icon.style.transform = 'rotate(0deg)';
+          } else {
+            toggle.setAttribute('aria-expanded', 'true');
+            content.classList.remove('hidden');
+            icon.textContent = '−';
+            icon.style.transform = 'rotate(180deg)';
+          }
+        });
+      });
+    });
+  </script>
+<!-- Script for Store Search Micro-interaction -->
+<script data-purpose="store-search-logic">
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('store-search-form');
+      const input = document.getElementById('search-input');
+      const listContainer = document.getElementById('stockists-list');
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const query = input.value.trim();
+        if (query) {
+          // Provide subtle feedback for the search
+          const originalContent = listContainer.innerHTML;
+          listContainer.innerHTML = `
+            <div class="p-6 rounded-2xl bg-lm-white/10 border border-lm-peach text-center animate-pulse">
+              <span class="text-sm text-lm-peach font-bold">Scanning stockists near "${query}"...</span>
+              <p class="text-xs text-lm-ivory/70 mt-1">3 locations found in your area.</p>
+            </div>
+            ${originalContent}
+          `;
+        }
+      });
+    });
+  </script>
+<!-- END: InteractiveScripts -->
+
+  <!-- 3D Canvas Scroll Engine (Inlined for 100% Production Reliability) -->
+  <script>
+/**
+ * LOCAL MOTION - 3D SCROLL ANIMATION & STITCH WEBSITE INTEGRATION
+ * Full-screen edge-to-edge canvas + responsive mobile menu + kinetic hero dissolve
+ */
+
+(function () {
+  'use strict';
+
+  if (typeof window === 'undefined' || typeof document === 'undefined') {
+    return;
+  }
+
+  const TOTAL_FRAMES = 210;
+  const FRAME_PREFIX = 'frames/ezgif-frame-';
+  const FRAME_EXT = '.jpg';
+  const LERP_FACTOR = 0.15; // Smooth responsive interpolation
+
+  const canvas = document.getElementById('animationCanvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const scrollTrack = document.getElementById('scrollTrack');
+  const heroOverlay = document.getElementById('heroOverlay');
+
+  // Mobile menu elements
+  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const menuIcon = document.getElementById('menuIcon');
+  const closeIcon = document.getElementById('closeIcon');
+
+  const images = [];
+  let currentFrame = 0;
+  let targetFrame = 0;
+  let lastDrawnFrame = -1;
+
+  // --------------------------------------------------------------------------
+  // HIGH-DPI CANVAS RESIZING & FULL-SCREEN COVER (ZERO TOP GAP)
+  // --------------------------------------------------------------------------
+  function resizeCanvas() {
+    const dpr = window.devicePixelRatio || 1;
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+
+    canvas.width = Math.floor(w * dpr);
+    canvas.height = Math.floor(h * dpr);
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+
+    renderCanvasFrame(Math.round(currentFrame));
+  }
+
+  window.addEventListener('resize', resizeCanvas);
+
+  function drawImg(img) {
+    if (!img) return;
+    const cw = canvas.width;
+    const ch = canvas.height;
+    ctx.clearRect(0, 0, cw, ch);
+
+    const imgW = img.naturalWidth || 1920;
+    const imgH = img.naturalHeight || 1080;
+
+    // 100% FULL-SCREEN COVER: fills full viewport width & height edge-to-edge
+    const scale = Math.max(cw / imgW, ch / imgH);
+    const dw = imgW * scale;
+    const dh = imgH * scale;
+
+    // Center horizontally
+    const dx = (cw - dw) / 2;
+
+    // Anchor flush to the top (dy = 0) so there is NEVER any line or gap at the top edge
+    let dy = 0;
+    if (dh < ch) {
+      dy = (ch - dh) / 2;
+    } else {
+      dy = 0;
+    }
+
+    ctx.drawImage(img, dx, dy, dw, dh);
+  }
+
+  function renderCanvasFrame(frameIdx) {
+    const clampedIdx = Math.max(0, Math.min(frameIdx, TOTAL_FRAMES - 1));
+    const img = images[clampedIdx];
+
+    if (img && img.complete && img.naturalWidth > 0) {
+      drawImg(img);
+      lastDrawnFrame = clampedIdx;
+      return;
+    }
+
+    // Fallback: draw nearest loaded frame so canvas is NEVER blank
+    for (let offset = 1; offset < TOTAL_FRAMES; offset++) {
+      const prev = images[clampedIdx - offset];
+      if (prev && prev.complete && prev.naturalWidth > 0) {
+        drawImg(prev);
+        lastDrawnFrame = clampedIdx - offset;
+        return;
+      }
+      const next = images[clampedIdx + offset];
+      if (next && next.complete && next.naturalWidth > 0) {
+        drawImg(next);
+        lastDrawnFrame = clampedIdx + offset;
+        return;
+      }
+    }
+  }
+
+  // --------------------------------------------------------------------------
+  // FRAME PRELOADER WITH AGGRESSIVE RESILIENCE
+  // --------------------------------------------------------------------------
+  function getFrameUrl(index) {
+    const padded = String(index + 1).padStart(3, '0');
+    return `${FRAME_PREFIX}${padded}${FRAME_EXT}`;
+  }
+
+  function initFrames() {
+    for (let i = 0; i < TOTAL_FRAMES; i++) {
+      const img = new Image();
+      img.src = getFrameUrl(i);
+
+      img.onload = () => {
+        // As soon as ANY early frame loads (or the first frame), render immediately
+        if (lastDrawnFrame === -1 || (i === 0 && lastDrawnFrame !== 0)) {
+          renderCanvasFrame(Math.round(currentFrame));
+        }
+      };
+
+      // If already cached in browser memory, trigger immediate paint
+      if (img.complete && img.naturalWidth > 0 && lastDrawnFrame === -1) {
+        renderCanvasFrame(0);
+      }
+
+      images.push(img);
+    }
+  }
+
+  // --------------------------------------------------------------------------
+  // KINETIC VANISHING HERO OVERLAY ENGINE (BLUR + GLIDE + DISSOLVE)
+  // Harmonized with can emergence around scroll progression
+  // --------------------------------------------------------------------------
+  function updateHeroOverlay(scrollY) {
+    if (!heroOverlay) return;
+    // Dissolves gracefully across the first 280px of scroll
+    const fadeDistance = 280;
+    const progress = Math.min(Math.max(scrollY / fadeDistance, 0), 1);
+    const opacity = 1 - progress;
+    const translateY = -progress * 45; // Gentle upward glide
+    const blurPx = (progress * 6).toFixed(1); // Cinematic blur out
+    const scale = (1 - progress * 0.04).toFixed(3);
+
+    heroOverlay.style.opacity = opacity.toFixed(3);
+    heroOverlay.style.transform = `translate(-50%, calc(-50% + ${translateY.toFixed(1)}px)) scale(${scale})`;
+    heroOverlay.style.filter = `blur(${blurPx}px)`;
+
+    if (opacity <= 0.01) {
+      heroOverlay.style.visibility = 'hidden';
+      heroOverlay.style.pointerEvents = 'none';
+    } else {
+      heroOverlay.style.visibility = 'visible';
+    }
+  }
+
+  // --------------------------------------------------------------------------
+  // SCROLL PROGRESS HANDLER
+  // --------------------------------------------------------------------------
+  function onScroll() {
+    const scrollY = window.pageYOffset || document.documentElement.scrollTop || 0;
+    updateHeroOverlay(scrollY);
+
+    if (!scrollTrack) return;
+    const trackHeight = scrollTrack.offsetHeight - window.innerHeight;
+    if (trackHeight <= 0) return;
+
+    // Clamped strictly between 0 and 1
+    const progress = Math.max(0, Math.min(scrollY / trackHeight, 1));
+    targetFrame = progress * (TOTAL_FRAMES - 1);
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+
+  // --------------------------------------------------------------------------
+  // SMOOTH NAVBAR SCROLLING & MOBILE MENU ENGINE
+  // --------------------------------------------------------------------------
+  function initNavigation() {
+    // Smooth scrolling on all anchor clicks
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (!targetId || targetId === '#') return;
+
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+          e.preventDefault();
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+          // Close mobile menu if open
+          if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+            if (menuIcon) menuIcon.classList.remove('hidden');
+            if (closeIcon) closeIcon.classList.add('hidden');
+          }
+        }
+      });
+    });
+
+    // Mobile Hamburger Menu Toggle
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        const isOpen = !mobileMenu.classList.contains('hidden');
+        if (isOpen) {
+          mobileMenu.classList.add('hidden');
+          if (menuIcon) menuIcon.classList.remove('hidden');
+          if (closeIcon) closeIcon.classList.add('hidden');
+        } else {
+          mobileMenu.classList.remove('hidden');
+          if (menuIcon) menuIcon.classList.add('hidden');
+          if (closeIcon) closeIcon.classList.remove('hidden');
+        }
+      });
+    }
+  }
+
+  // --------------------------------------------------------------------------
+  // SMOOTH LERP INTERPOLATION LOOP (60FPS / 120FPS)
+  // --------------------------------------------------------------------------
+  function startAnimationLoop() {
+    function animate() {
+      const delta = targetFrame - currentFrame;
+      currentFrame += delta * LERP_FACTOR;
+
+      const rounded = Math.round(currentFrame);
+      if (rounded !== lastDrawnFrame) {
+        renderCanvasFrame(rounded);
+      }
+
+      requestAnimationFrame(animate);
+    }
+    requestAnimationFrame(animate);
+  }
+
+  // BOOTSTRAP
+  resizeCanvas();
+  initFrames();
+  initNavigation();
+  updateHeroOverlay(window.pageYOffset || 0);
+  startAnimationLoop();
+
+})();
+  </script>
+</body>
+</html>

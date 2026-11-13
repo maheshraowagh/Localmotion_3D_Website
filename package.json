@@ -2,8 +2,8 @@
   "name": "motion-drink-3d-website",
   "version": "1.0.0",
   "description": "Local Motion Peach Vodka Soda 3D Website",
+  "main": "server.js",
   "scripts": {
-    "build": "echo 'Static build ready'",
-    "start": "node scripts/server.js"
+    "start": "node server.js"
   }
 }
