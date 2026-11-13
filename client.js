@@ -107,7 +107,7 @@
   }
 
   // --------------------------------------------------------------------------
-  // FRAME PRELOADER
+  // FRAME PRELOADER WITH AGGRESSIVE RESILIENCE
   // --------------------------------------------------------------------------
   function getFrameUrl(index) {
     const padded = String(index + 1).padStart(3, '0');
@@ -120,10 +120,20 @@
       img.src = getFrameUrl(i);
 
       img.onload = () => {
-        if (i === 0 && lastDrawnFrame === -1) {
-          renderCanvasFrame(0);
+        // As soon as ANY early frame loads (or the first frame), render immediately
+        if (lastDrawnFrame === -1 || (i === 0 && lastDrawnFrame !== 0)) {
+          renderCanvasFrame(Math.round(currentFrame));
         }
       };
+
+      img.onerror = () => {
+        console.warn(`[3D Can] Frame failed to load: ${img.src}`);
+      };
+
+      // If already cached in browser memory, trigger immediate paint
+      if (img.complete && img.naturalWidth > 0 && lastDrawnFrame === -1) {
+        renderCanvasFrame(0);
+      }
 
       images.push(img);
     }
@@ -131,16 +141,17 @@
 
   // --------------------------------------------------------------------------
   // KINETIC VANISHING HERO OVERLAY ENGINE (BLUR + GLIDE + DISSOLVE)
+  // Harmonized with can emergence around scroll progression
   // --------------------------------------------------------------------------
   function updateHeroOverlay(scrollY) {
     if (!heroOverlay) return;
-    // Dissolves smoothly within the first 160px of scroll
-    const fadeDistance = 160;
+    // Dissolves gracefully across the first 280px of scroll
+    const fadeDistance = 280;
     const progress = Math.min(Math.max(scrollY / fadeDistance, 0), 1);
     const opacity = 1 - progress;
-    const translateY = -progress * 30; // Gentle upward glide
-    const blurPx = (progress * 5).toFixed(1); // Cinematic blur out
-    const scale = (1 - progress * 0.03).toFixed(3);
+    const translateY = -progress * 45; // Gentle upward glide
+    const blurPx = (progress * 6).toFixed(1); // Cinematic blur out
+    const scale = (1 - progress * 0.04).toFixed(3);
 
     heroOverlay.style.opacity = opacity.toFixed(3);
     heroOverlay.style.transform = `translate(-50%, calc(-50% + ${translateY.toFixed(1)}px)) scale(${scale})`;
@@ -240,4 +251,3 @@
   startAnimationLoop();
 
 })();
-
