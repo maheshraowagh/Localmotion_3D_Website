@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "3D Canvas Scroll Animation experience for Local Motion Vodka Soda Peach",
   "scripts": {
-    "start": "node server.js"
+    "start": "node scripts/server.js"
   },
   "keywords": ["canvas", "scroll-animation", "3d", "drinks", "interactive"],
   "author": "Antigravity",
